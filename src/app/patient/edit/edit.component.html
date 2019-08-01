@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Nome: </label>
+    <input type="text" class="form-control" [(ngModel)]="patient.name" name="name"/>
+  </div>
+
+  <div class="form-group">
+    <label>Email: </label>
+    <input type="text" class="form-control" [(ngModel)]="patient.email" name="email"/>
+  </div>
+
+  <div class="form-group">
+    <label>Telefone: </label>
+    <input type="text" class="form-control" [(ngModel)]="patient.phone" name="phone"/>
+  </div>
+
+  <div class="form-group">
+      <label>CPF: </label>
+      <input type="text" class="form-control" [(ngModel)]="patient.cpf" name="cpf"/>
+  </div>
+
+  <div class="form-group">
+      <label>Mensalidade: </label>
+      <input type="text" class="form-control" [(ngModel)]="patient.value_payment" name="value_payment"/>
+  </div>
+
+  <div class="form-group">
+      <label>Início: </label>
+      <input type="date" class="form-control" [(ngModel)]="patient.begin" name="begin"/>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

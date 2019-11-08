@@ -1,0 +1,74 @@
+<h3>Cadastro de Novas Turmas</h3>
+<div class="alert alert-success" *ngIf="save" role="alert">
+    Salvo com Sucesso!
+</div>
+<div class="alert alert-danger" *ngIf="erro" role="alert">
+    Erro ao Salvar, Favor verificar o preenchimento dos campos!
+</div>
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="form-group col-4">
+            <label>Dia:</label><br>
+            <select name="day" [(ngModel)]="class.day" formControlName="day" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.day.errors }">
+                <option>Selecione o dia</option>
+                <option value="monday">Segunda-Feira</option>
+                <option value="tuesday">Terça-Feira</option>
+                <option value="wednesday">Quarta-Feira</option>
+                <option value="thursday">Quinta-Feira</option>
+                <option value="friday">Sexta-Feira</option>
+            </select>
+            <div *ngIf="submitted && f.day.errors" class="invalid-feedback">
+                <div *ngIf="f.day.errors.required">Campo Obrigatório</div>
+            </div>
+        </div>
+        <div class="form-group col-2">
+            <label>Hora:</label>
+            <input type="time" name="hour" [(ngModel)]="class.hour" formControlName="hour" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.hour.errors }">
+            <div *ngIf="submitted && f.hour.errors" class="invalid-feedback">
+                <div *ngIf="f.hour.errors.required">Campo Obrigatório</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-3">
+            <label>Vaga 1</label><br>
+            <select name="p1" [(ngModel)]="class.p1" formControlName="p1" class="form-control">
+                <option value=" ">Selecione o paciente</option>
+                <option value=" ">Disponível</option>
+                <option *ngFor="let patient of patients | async" value="{{patient.name}}">{{patient.name}}</option>
+            </select>
+        </div>
+        <div class="form-group col-3">
+            <label>Vaga 2</label><br>
+            <select name="p2" [(ngModel)]="class.p2" formControlName="p2" class="form-control" [value]=''>
+                <option value=" ">Selecione o paciente</option>
+                <option value=" ">Disponível</option>
+                <option *ngFor="let patient of patients | async" value="{{patient.name}}">{{patient.name}}</option>
+            </select>
+        </div>
+        <div class="form-group col-3">
+            <label>Vaga 3</label><br>
+            <select name="p3" [(ngModel)]="class.p3" formControlName="p3" class="form-control">
+
+                <option value=" ">Selecione o paciente</option>
+                <option value=" ">Disponível</option>
+                <option *ngFor="let patient of patients | async" value="{{patient.name}}">{{patient.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-3">
+            <label>Vaga 4</label><br>
+            <select name="p4" [(ngModel)]="class.p4" formControlName="p4" class="form-control">
+                <option value=" ">Selecione o paciente</option>
+                <option value=" ">Disponível</option>
+                <option *ngFor="let patient of patients | async" value="{{patient.name}}">{{patient.name}}</option>
+            </select>
+        </div>
+        <h6 class="ps">* Para vagas livres, favor selecionar o campo "Disponível"</h6>
+    </div>
+    <button class="btn btn-success" [disabled]="classForm.invalid"> Salvar</button>
+    <button class="btn btn-secondary ml-5" type="reset" (click)="onReset()">Limpar</button>
+</form>

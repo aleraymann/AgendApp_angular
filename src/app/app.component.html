@@ -1,4 +1,27 @@
-<div class="container mt-5 mb-5">
-  <app-edit></app-edit>
-  <app-list></app-list>
+<nav *ngIf="viewMenu" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="">
+    <img src="assets/imgs/AgendApp2.png" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+    aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <h4><a class="nav-link" routerLink="patients">Pacientes</a></h4>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <h4><a class="nav-link" routerLink="class">Turmas</a></h4>
+      </li>
+    </ul>
+    <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+      
+
+
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>

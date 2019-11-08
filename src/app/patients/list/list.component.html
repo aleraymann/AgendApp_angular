@@ -1,0 +1,27 @@
+<div class="alert alert-success" *ngIf="del" role="alert">
+    Paciente Excluído com Sucesso!
+</div>
+<h3>Lista de Pacientes</h3>
+<table class="table table-hover table-striped">
+    <thead>
+        <th>Nome</th>
+        <th>Data de Início</th>
+        <th>Mensalidade</th>
+        <th>Pagamento</th>
+        <th></th>
+    </thead>
+
+        <tbody>
+             <!-- <tr ng-repeat="patient in patients| orderBy:'+name'">-->
+            <tr *ngFor="let patient of patients | async ">
+                <td>{{patient.name}}</td>
+                <td>{{patient.begin}}</td>
+                <td>{{patient.value_payment}}</td>
+                <td>{{patient.payment != false ? 'Pago' : 'Em Aberto'}}</td>
+                <td>
+                    <button class="btn btn-info" (click)="edit(patient, patient.key)">Editar</button>
+                    <button class="btn btn-danger ml-2" (click)="delete(patient.key)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+</table>

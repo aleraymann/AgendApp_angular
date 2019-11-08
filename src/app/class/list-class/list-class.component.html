@@ -1,0 +1,132 @@
+<div class="alert alert-success" *ngIf="del" role="alert">
+    Turma Excluída com Sucesso!
+</div>
+
+<h3>Segunda-Feira</h3>
+<table class="table table-hover table-striped">
+    <thead>
+        <th>Hora</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th></th>
+    </thead>
+        <tbody>
+            <tr *ngFor="let c of class | async">
+                <td *ngIf="c.day == 'monday'">{{c.hour}}</td>
+                <td *ngIf="c.day == 'monday'">{{c.p1}}</td>
+                <td *ngIf="c.day == 'monday'">{{c.p2}}</td>
+                <td *ngIf="c.day == 'monday'">{{c.p3}}</td>
+                <td *ngIf="c.day == 'monday'">{{c.p4}}</td>
+                <td *ngIf="c.day == 'monday'">
+                    <button class="btn btn-info" (click)="edit(c, c.key)">Editar</button>
+                    <button class="btn btn-danger ml-2" (click)="delete(c.key)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+</table>
+<hr>
+<br>
+<h3>Terça-Feira</h3>
+<table class="table table-hover table-striped">
+    <thead>
+        <th>Hora</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th></th>
+    </thead>
+        <tbody>
+            <tr *ngFor="let c of class | async">
+                <td *ngIf="c.day == 'tuesday'">{{c.hour}}</td>
+                <td *ngIf="c.day == 'tuesday'">{{c.p1}}</td>
+                <td *ngIf="c.day == 'tuesday'">{{c.p2}}</td>
+                <td *ngIf="c.day == 'tuesday'">{{c.p3}}</td>
+                <td *ngIf="c.day == 'tuesday'">{{c.p4}}</td>
+                <td *ngIf="c.day == 'tuesday'">
+                    <button class="btn btn-info" (click)="edit(c, c.key)">Editar</button>
+                    <button class="btn btn-danger ml-2" (click)="delete(c.key)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+</table>
+<hr>
+<br>
+<h3>Quarta-Feira</h3>
+<table class="table table-hover table-striped">
+    <thead>
+        <th>Hora</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th></th>
+    </thead>
+        <tbody>
+            <tr *ngFor="let c of class | async">
+                <td *ngIf="c.day == 'wednesday'">{{c.hour}}</td>
+                <td *ngIf="c.day == 'wednesday'">{{c.p1}}</td>
+                <td *ngIf="c.day == 'wednesday'">{{c.p2}}</td>
+                <td *ngIf="c.day == 'wednesday'">{{c.p3}}</td>
+                <td *ngIf="c.day == 'wednesday'">{{c.p4}}</td>
+                <td *ngIf="c.day == 'wednesday'">
+                    <button class="btn btn-info" (click)="edit(c, c.key)">Editar</button>
+                    <button class="btn btn-danger ml-2" (click)="delete(c.key)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+</table>
+<hr>
+<br>
+<h3>Quinta-Feira</h3>
+<table class="table table-hover table-striped">
+    <thead>
+        <th>Hora</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th></th>
+    </thead>
+        <tbody>
+            <tr *ngFor="let c of class | async">
+                <td *ngIf="c.day == 'thursday'">{{c.hour}}</td>
+                <td *ngIf="c.day == 'thursday'">{{c.p1}}</td>
+                <td *ngIf="c.day == 'thursday'">{{c.p2}}</td>
+                <td *ngIf="c.day == 'thursday'">{{c.p3}}</td>
+                <td *ngIf="c.day == 'thursday'">{{c.p4}}</td>
+                <td *ngIf="c.day == 'thursday'">
+                    <button class="btn btn-info" (click)="edit(c, c.key)">Editar</button>
+                    <button class="btn btn-danger ml-2" (click)="delete(c.key)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+</table>
+<hr>
+<br>
+<h3>Sexta-Feira</h3>
+<table class="table table-hover table-striped">
+    <thead>
+        <th>Hora</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th></th>
+    </thead>
+        <tbody>
+            <tr *ngFor="let c of class | async">
+                <td *ngIf="c.day == 'friday'">{{c.hour}}</td>
+                <td *ngIf="c.day == 'friday'">{{c.p1}}</td>
+                <td *ngIf="c.day == 'friday'">{{c.p2}}</td>
+                <td *ngIf="c.day == 'friday'">{{c.p3}}</td>
+                <td *ngIf="c.day == 'friday'">{{c.p4}}</td>
+                <td *ngIf="c.day == 'friday'">
+                    <button class="btn btn-info" (click)="edit(c, c.key)">Editar</button>
+                    <button class="btn btn-danger ml-2" (click)="delete(c.key)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+</table>

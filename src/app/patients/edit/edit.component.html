@@ -1,0 +1,76 @@
+
+<h3>Cadastro de Pacientes</h3>
+<div class="alert alert-success" *ngIf="save" role="alert">
+    Salvo com Sucesso!
+</div>
+<div class="alert alert-danger" *ngIf="erro" role="alert">
+    Erro ao Salvar, Favor verificar o preenchimento dos campos!
+</div>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="form-group col-4">
+            <label>Nome:</label>
+            <input type="text" name="name" [(ngModel)]="patient.name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                placeholder="Nome do Paciente">
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Campo Obrigatório</div>
+                </div>
+        </div>
+        <div class="form-group col-4">
+            <label>Email:</label>
+            <input type="email" name="email" [(ngModel)]="patient.email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                placeholder="algo@algo.com">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email Obrigatório</div>
+                    <div *ngIf="f.email.errors.email">Digite um email válido</div>
+                </div>
+        </div>
+        <div class="form-group col-3">
+                <label>Telefone:</label>
+                <input  [textMask]="{mask: phone}" type="text" name="phone" [(ngModel)]="patient.phone" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }"
+                    placeholder="(00)00000-0000"  mask='{(00)00000-0000}'>
+                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone.errors.required">Campo Obrigatório</div>
+                    </div>
+            </div>
+    </div>
+    <div class="row">
+        
+        <div class="form-group col-3">
+            <label>Data de Inicio:</label>
+            <input type="date" name="begin" [(ngModel)]="patient.begin" formControlName="begin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.begin.errors }">
+            <div *ngIf="submitted && f.begin.errors" class="invalid-feedback">
+                <div *ngIf="f.begin.errors.required">Campo Obrigatório</div>
+            </div>
+        </div>
+        <div class="form-group col-3">
+            <label>Mensalidade:</label>
+            <input  [textMask]="{mask: value_payment}"type="text" name="value_payment" [(ngModel)]="patient.value_payment" formControlName="value_payment" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.value_payment.errors }"
+                placeholder="000.00">
+                <div *ngIf="submitted && f.value_payment.errors" class="invalid-feedback">
+                    <div *ngIf="f.value_payment.errors.required">Campo Obrigatório</div>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label>Pagamento:</label>
+            <div>
+                <input type="radio" id="payment" name="payment" [value]="true" [(ngModel)]="patient.payment" formControlName="payment" [ngClass]="{ 'is-invalid': submitted && f.payment.errors }">
+                <div *ngIf="submitted && f.payment.errors" class="invalid-feedback">
+                    <div *ngIf="f.payment.errors.required">Campo Obrigatório</div>
+                </div>
+                <label for="payment" class="ml-2">Pago</label>
+
+                <input class="ml-3" checked type="radio" id="payment" name="payment" [value]="false" [(ngModel)]="patient.payment" formControlName="payment"  [ngClass]="{ 'is-invalid': submitted && f.payment.errors }"checked="checked">
+                <div *ngIf="submitted && f.payment.errors" class="invalid-feedback">
+                    <div *ngIf="f.payment.errors.required">Campo Obrigatório</div>
+                </div>
+                <label for="payment"class="ml-2">Em Aberto</label>
+                
+            </div>
+            
+        </div>
+    </div>
+    <button class="btn btn-success" > Salvar</button>
+    <button class="btn btn-secondary ml-5" type="reset" (click)="onReset()">Limpar</button>
+</form>

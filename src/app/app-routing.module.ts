@@ -1,7 +1,7 @@
 import { PatientsComponent } from './patients/patients.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClassComponent } from './class/class.component';
 import { AuthGuard } from './guards/auth.guard';

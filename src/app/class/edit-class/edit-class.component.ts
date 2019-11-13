@@ -68,13 +68,11 @@ export class EditClassComponent implements OnInit {
     if(this.key){
       this.erro = false;
       this.save = true;
-      //window.alert("Editado com Sucesso!");
       this._classService.update(this.class,this.key);
       this.submitted = false;
     }else{
       this.erro = false;
       this.save = true;
-      //window.alert("Salvo com Sucesso!");
       this._classService.insert(this.class);
       this.submitted = false;
     }
